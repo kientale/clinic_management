@@ -1,0 +1,132 @@
+Chức năng chính
+1. Lễ tân
+	- Đăng nhập/ Quên mật khẩu
+	- Quản lý thông tin cá nhân
+		+ Sửa thông tin cá nhân
+		+ Đổi mật khẩu
+	- Quản lý bệnh nhân ( Hồ sơ bệnh nhân):
+		+ Xem danh sách bệnh nhân
+		+ Xem chi tiết hồ sơ bệnh nhân
+		+ Thêm hồ sơ bệnh nhân
+		+ Sửa hồ sơ bệnh nhân
+		+ Xóa hồ sơ bệnh nhân
+		+ Tìm kiếm hồ sơ bệnh nhân: Theo tên, mã hồ sơ, căn cước công dân, số điện thoại.
+	- Quản lý lịch hẹn:
+		+ Xem danh sách lịch hẹn
+		+ Xem chi tiết lịch hẹn
+		+ Thêm lịch hẹn mới: Lịch hẹn cố định và lịch hẹn phát sinh
+		+ Sửa thông tin lịch hẹn
+		+ Hủy lịch hẹn (Có kèm theo lý do)
+		+ Xem lịch hẹn trong ngày
+		+ Tìm kiếm lịch hẹn: Theo tên bệnh nhân, tên bác sĩ, ngày tháng
+
+2. Bác sĩ
+	- Đăng nhập/ Quên mật khẩu
+	- Quản lý thông tin cá nhân
+	- Quản lý lịch hẹn:
+		+ Xem danh sách lịch hẹn của bản thân
+		+ Xem chi tiết hồ sơ bệnh nhân
+		+ Hủy lịch hẹn (Có kèm theo lý do)
+	- Khám bệnh
+	- Quản lý đơn thuốc (Kê đơn thuốc):
+		+ Tạo đơn thuốc mới cho bệnh nhân
+		+ Thêm thuốc từ danh mục (kèm liều lượng)
+		+ Xóa đơn thuốc
+		+ Tự động sinh tổng tiền thuốc
+		+ Xem lịch sử đơn thuốc của bệnh nhân
+
+3. Admin
+	- Đăng nhập/ Quên mật khẩu
+ 	- Quản lý thông tin cá nhân
+	- Quản lý lịch hẹn
+	- Quản lý hồ sơ bệnh nhân
+	- Khám bệnh
+	- Quản lý người dùng
+		+ Xem danh sách người dùng
+		+ Xem chi tiết thông tin người dùng
+		+ Thêm người dùng
+		+ Sửa thông tin người dùng
+		+ Xóa người dùng
+		+ Phân quyền người dùng
+		+ Tìm kiếm người dùng: Theo tên, số điện thoại, căn cước công dân
+		+ Xem nhật ký hoạt động
+		+ Reset mật khẩu người dùng
+	- Quản lý kho thuốc:
+		+ Xem danh sách thuốc
+		+ Xem chi tiết thông tin thuốc
+		+ Thêm thuốc
+		+ Sửa thông tin thuốc
+		+ Xóa thuốc
+		+ Tìm kiếm thuốc: Theo tên, nhà sản xuất
+		+ Nhập thuốc
+	- Thống kê:
+		+ Thống kê bệnh nhân
+		+ Thống kê doanh thu
+		+ Thống kê người dùng
+
+
+
+Dòng nghiệp vụ
+1. Bệnh nhân đến phòng khám
+Bệnh nhân đến trực tiếp tại phòng khám, có thể là:
+	- Bệnh nhân đã đặt lịch hẹn trước (Khám lại, đặt lịch qua trang web,...)
+	- Bệnh nhân đến khám tự do (không hẹn trước).
+
+2. Bệnh nhân gặp lễ tân tại quầy tiếp nhận
+	- Trường hợp 1: Bệnh nhân đã đặt lịch hẹn trước
+		+ Lễ tân kiểm tra lịch hẹn trên hệ thống thông qua tên, số điện thoại.
+		+ Lễ tân tìm kiếm và kiểm tra hồ sơ bệnh nhân
+			 - Xác minh thông tin cá nhân (họ tên, ngày sinh, mã bệnh nhân, số căn cước công dân).
+		+ Kiểm tra và cập nhật thông tin bảo hiểm y tế (nếu có).
+		+ Cấp số thứ tự khám tương ứng với khung giờ đã hẹn.
+
+	- Trường hợp 2: Bệnh nhân khám mới (không đặt lịch trước)
+		+ Lễ tân tạo hồ sơ bệnh nhân mới trên hệ thống:
+			- Nhập thông tin cá nhân: họ tên, ngày sinh, giới tính, liên hệ, địa chỉ,...
+		+ Kiểm tra bảo hiểm y tế (BHYT) nếu bệnh nhân cung cấp.
+		+ Cấp số thứ tự khám theo quy trình tự do (xếp theo thứ tự đến).
+		+ Tạo lịch khám mới cho bác sĩ tương ứng.
+
+3. Hệ thống cập nhật hồ sơ và thông tin khám cho bác sĩ
+	- Hồ sơ bệnh nhân cùng số thứ tự hoặc lịch hẹn được tự động hiển thị trên giao diện làm việc của bác sĩ theo từng phòng khám chuyên khoa tương ứng.
+	- Bệnh nhân được sắp xếp theo thứ tự khám ưu tiên, tùy theo cấu hình:
+		+ Thứ tự thời gian hẹn
+		+ Thứ tự đến
+	- Hệ thống hỗ trợ lọc danh sách bệnh nhân theo trạng thái: “Đã khám”, “Chờ khám”.
+
+4. Bác sĩ xem danh sách bệnh nhân và nhấn “Bắt đầu khám”
+	- Khi đến lượt, bác sĩ chọn bệnh nhân trên hệ thống và nhấn nút “Bắt đầu khám”.
+	- Thao tác này chuyển trạng thái bệnh nhân sang “Đang khám”.
+
+5. Bác sĩ tiến hành khám bệnh
+	- Khai thác thông tin từ bệnh nhân về triệu chứng, tiền sử, tình trạng hiện tại.
+	- Nhập chẩn đoán sơ bộ vào hồ sơ khám bệnh trên hệ thống.
+
+7. Bác sĩ chẩn đoán cuối cùng và kê đơn
+	- Sau khi có kết quả (nếu có), bác sĩ:
+		+ Đưa ra chẩn đoán chính xác
+		+ Lập kế hoạch điều trị ( Đến khám lại,...)
+		+ Kê đơn thuốc điều trị
+	- Đơn thuốc được nhập vào hệ thống và lưu trong hồ sơ bệnh nhân.
+
+8. Đơn thuốc được gửi đến quầy thuốc
+	- Đơn thuốc được gửi điện tử đến khu vực phát thuốc hoặc quầy thuốc nội bộ của phòng khám.
+	- Quầy thuốc chuẩn bị sẵn thuốc theo đơn.
+
+9. Hệ thống lưu toàn bộ thông tin vào hồ sơ bệnh nhân
+	- Bao gồm: chẩn đoán, đơn thuốc, kết quả cận lâm sàng, lịch sử điều trị,...
+	- Hồ sơ được lưu trữ và có thể truy cập lại ở các lần khám sau.
+
+10. In đơn thuốc hoặc hóa đơn (nếu cần)
+	- Hệ thống có thể tự động in:
+		+ Đơn thuốc có hướng dẫn sử dụng
+		+ Hóa đơn khám chữa bệnh (nếu có chi phí)
+
+11. Bệnh nhân thanh toán
+	- Nếu bệnh nhân khám dịch vụ hoặc không sử dụng BHYT, hệ thống tính phí khám, cận lâm sàng, thuốc,...
+	- Bệnh nhân thanh toán tại quầy thu ngân.
+
+12. Bệnh nhân nhận thuốc và ra về.
+
+Còn lặp code nhiều, cần tạo code dùng chung
+Lịch sử hoạt động lỗi

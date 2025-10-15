@@ -1,0 +1,9 @@
+{
+  "name" : "Nguyễn Văn Liên",
+  "email" : "vanlien@example.com",
+  "phoneNumber" : "0957463748",
+  "address" : "123 Đường A",
+  "dateOfBirth" : "1990-05-13",
+  "gender" : "Male",
+  "citizenId" : "091263746565"
+}
